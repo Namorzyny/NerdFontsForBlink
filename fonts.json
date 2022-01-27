@@ -1,0 +1,242 @@
+{
+    "3270": {
+        "name": "3270",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip"
+    },
+    "Agave": {
+        "name": "Agave",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Agave.zip"
+    },
+    "AnonymousPro": {
+        "name": "AnonymousPro",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/AnonymousPro.zip"
+    },
+    "Arimo": {
+        "name": "Arimo",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Arimo.zip"
+    },
+    "AurulentSansMono": {
+        "name": "AurulentSansMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/AurulentSansMono.zip"
+    },
+    "BigBlueTerminal": {
+        "name": "BigBlueTerminal",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/BigBlueTerminal.zip"
+    },
+    "BitstreamVeraSansMono": {
+        "name": "BitstreamVeraSansMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/BitstreamVeraSansMono.zip"
+    },
+    "CascadiaCode": {
+        "name": "CascadiaCode",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip"
+    },
+    "IBMPlexMono": {
+        "name": "IBMPlexMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/IBMPlexMono.zip"
+    },
+    "CodeNewRoman": {
+        "name": "CodeNewRoman",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CodeNewRoman.zip"
+    },
+    "Cousine": {
+        "name": "Cousine",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Cousine.zip"
+    },
+    "DaddyTimeMono": {
+        "name": "DaddyTimeMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DaddyTimeMono.zip"
+    },
+    "DejaVuSansMono": {
+        "name": "DejaVuSansMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DejaVuSansMono.zip"
+    },
+    "DroidSansMono": {
+        "name": "DroidSansMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DroidSansMono.zip"
+    },
+    "FantasqueSansMono": {
+        "name": "FantasqueSansMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip"
+    },
+    "FiraCode": {
+        "name": "FiraCode",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip"
+    },
+    "FiraMono": {
+        "name": "FiraMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraMono.zip"
+    },
+    "Gohu": {
+        "name": "Gohu",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Gohu.zip"
+    },
+    "Hack": {
+        "name": "Hack",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip"
+    },
+    "Hasklig": {
+        "name": "Hasklig",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hasklig.zip"
+    },
+    "HeavyData": {
+        "name": "HeavyData",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/HeavyData.zip"
+    },
+    "Hermit": {
+        "name": "Hermit",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hermit.zip"
+    },
+    "Inconsolata": {
+        "name": "Inconsolata",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Inconsolata.zip"
+    },
+    "InconsolataGo": {
+        "name": "InconsolataGo",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/InconsolataGo.zip"
+    },
+    "InconsolataLGC": {
+        "name": "InconsolataLGC",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/InconsolataLGC.zip"
+    },
+    "Iosevka": {
+        "name": "Iosevka",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip"
+    },
+    "JetBrainsMono": {
+        "name": "JetBrainsMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip"
+    },
+    "Lekton": {
+        "name": "Lekton",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Lekton.zip"
+    },
+    "LiberationMono": {
+        "name": "LiberationMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/LiberationMono.zip"
+    },
+    "Meslo": {
+        "name": "Meslo",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip"
+    },
+    "Monofur": {
+        "name": "Monofur",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Monofur.zip"
+    },
+    "Monoid": {
+        "name": "Monoid",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Monoid.zip"
+    },
+    "Mononoki": {
+        "name": "Mononoki",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Mononoki.zip"
+    },
+    "MPlus": {
+        "name": "MPlus",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/MPlus.zip"
+    },
+    "Noto": {
+        "name": "Noto",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Noto.zip"
+    },
+    "ProFont": {
+        "name": "ProFont",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/ProFont.zip"
+    },
+    "ProggyClean": {
+        "name": "ProggyClean",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/ProggyClean.zip"
+    },
+    "OpenDyslexic": {
+        "name": "OpenDyslexic",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/OpenDyslexic.zip"
+    },
+    "Overpass": {
+        "name": "Overpass",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Overpass.zip"
+    },
+    "RobotoMono": {
+        "name": "RobotoMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/RobotoMono.zip"
+    },
+    "ShareTechMono": {
+        "name": "ShareTechMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/ShareTechMono.zip"
+    },
+    "SourceCodePro": {
+        "name": "SourceCodePro",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip"
+    },
+    "SpaceMono": {
+        "name": "SpaceMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SpaceMono.zip"
+    },
+    "Terminus": {
+        "name": "Terminus",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Terminus.zip"
+    },
+    "Tinos": {
+        "name": "Tinos",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Tinos.zip"
+    },
+    "Ubuntu": {
+        "name": "Ubuntu",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Ubuntu.zip"
+    },
+    "UbuntuMono": {
+        "name": "UbuntuMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/UbuntuMono.zip"
+    },
+    "VictorMono": {
+        "name": "VictorMono",
+        "version": "2.1.0",
+        "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/VictorMono.zip"
+    }
+}
