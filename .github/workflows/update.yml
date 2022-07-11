@@ -1,0 +1,31 @@
+name: 'update-htdocs'
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  update-htdocs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: latest
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules
+      - run: yarn
+      - run: |
+          npx ts-node ./scripts/fetch-fonts.ts
+          npx ts-node ./scripts/download-fonts.ts
+          npx ts-node ./scripts/generate-css.ts
+      - run: |
+          git config user.email namorzyny@gmail.com
+          git config user.name Namorzyny
+          git add .
+          git commit -m "auto update: $(date -R)" || echo 'Nothing was commited.'
+          git push
