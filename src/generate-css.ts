@@ -14,7 +14,7 @@ const fontInfo = readdirSync(`${REPO_PATH}/downloads`)
     .filter(font => font !== 'NerdFontsSymbolsOnly')
     .map(font => {
         const files = readdirSync(`${REPO_PATH}/downloads/${font}`)
-            .filter(file => file.includes('Complete.ttf'))
+            .filter(file => file.includes('Complete'))
             .filter(file => !file.includes('Windows Compatible'));
         const regular = files.filter(
             file => !/Italic/i.test(file)

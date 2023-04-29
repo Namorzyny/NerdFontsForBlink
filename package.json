@@ -1,6 +1,6 @@
 {
-  "name": "nerd-fonts",
-  "version": "1.0.0",
+  "name": "nerd-fonts-for-blink",
+  "version": "2.3.3",
   "private": true,
   "dependencies": {
     "@types/node": "^17.0.12",

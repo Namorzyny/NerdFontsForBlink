@@ -1,13 +1,11 @@
-name: 'update-htdocs'
+name: 'Update Fonts'
 on:
   push:
     branches:
       - master
-  schedule:
-    - cron: '0 0 1 * *'
 
 jobs:
-  update-htdocs:
+  update-fonts:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,12 +18,12 @@ jobs:
           key: node_modules
       - run: yarn
       - run: |
-          npx ts-node ./scripts/fetch-fonts.ts
-          npx ts-node ./scripts/download-fonts.ts
-          npx ts-node ./scripts/generate-css.ts
+          npx tsx ./src/fetch-list.ts
+          npx tsx ./src/download-fonts.ts
+          npx tsx ./src/generate-css.ts
       - run: |
           git config user.email namorzyny@gmail.com
           git config user.name Namorzyny
           git add .
-          git commit -m "auto update: $(date -R)" || echo 'Nothing was commited.'
+          git commit -m "Update to version: `node -p "require('./package.json').version"`" || echo 'Nothing was commited.'
           git push
