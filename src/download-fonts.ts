@@ -1,7 +1,7 @@
 import {REPO_PATH, FONT_LIST} from './constants';
 import fetch from 'node-fetch';
 import unzipper from 'unzipper';
-import {FontList} from './fetch-fonts';
+import {FontList} from './fetch-list';
 import {readFileSync, rmSync, mkdirSync} from 'fs';
 
 interface DownloadedData {
