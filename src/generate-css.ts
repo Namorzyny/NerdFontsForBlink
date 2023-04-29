@@ -32,7 +32,7 @@ const fontInfo = readdirSync(`${REPO_PATH}/downloads`)
                 && !/Semibold/i.test(file),
         );
         const bold = files.filter(
-            file => / Bold /i.test(file)
+            file => / Bold/i.test(file)
                 && !/Heavy/i.test(file)
                 && !/Light/i.test(file)
                 && !/Condensed/i.test(file)
@@ -44,7 +44,7 @@ const fontInfo = readdirSync(`${REPO_PATH}/downloads`)
                 && !/Black/i.test(file),
         );
         const italic = files.filter(
-            file => / Italic /i.test(file)
+            file => / Italic/i.test(file)
                 && !/Heavy/i.test(file)
                 && !/Light/i.test(file)
                 && !/Condensed/i.test(file)
@@ -58,7 +58,7 @@ const fontInfo = readdirSync(`${REPO_PATH}/downloads`)
         );
         const boldItalic = files.filter(
             file => / Bold /i.test(file)
-                && / Italic /i.test(file)
+                && / Italic/i.test(file)
                 && !/Heavy/i.test(file)
                 && !/Light/i.test(file)
                 && !/Condensed/i.test(file)
