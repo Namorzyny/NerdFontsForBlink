@@ -4,11 +4,14 @@ module.exports = {
         node: true,
     },
     parserOptions: {
-        ecmaVersion: 2021,
+        ecmaVersion: 'esnext',
         project: './tsconfig.json',
     },
     extends: [
         '@namorzyny',
         '@namorzyny/eslint-config/typescript',
     ],
+    rules: {
+        'no-shadow': 'off',
+    }
 };
