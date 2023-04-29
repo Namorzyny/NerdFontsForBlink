@@ -2,13 +2,11 @@ import {DOWNLOAD_URL, REPO_PATH} from './constants';
 import fetch from 'node-fetch';
 import {writeFileSync} from 'fs';
 
-export interface FontList {
-    [fontName: string]: {
-        name: string;
-        version: string;
-        url: string;
-    }
-}
+export type FontList = Record<string, {
+    name: string;
+    version: string;
+    url: string;
+}>;
 
 async function getFontList(): Promise<void> {
     console.log('Fetching font list...');
