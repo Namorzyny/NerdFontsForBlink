@@ -35,7 +35,10 @@ class Downloader {
         if (this.downloading < this.parallel) {
             this.downloading++;
         } else {
-            await new Promise<void>(resolve => this.queue.push(resolve));
+            await new Promise<void>(resolve => this.queue.push(() => {
+                this.downloading++;
+                resolve();
+            }));
         }
     }
 
@@ -47,10 +50,10 @@ class Downloader {
 }
 
 async function download(name: string, url: string): Promise<DownloadedData> {
-    const response = await fetch(url);
     console.log(`Downloading ${name}: ${url}`);
+    const response = await fetch(url);
     if (!response.ok) throw new Error(`Unexpected response: ${response.statusText}`);
-    console.log(`Downloaded ${name}...`);
+    console.log(`Downloaded ${name}.`);
     return {name, data: response.body};
 }
 
