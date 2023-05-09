@@ -10,75 +10,35 @@ import {
 type FontStyle = 'regular' | 'bold' | 'italic' | 'boldItalic';
 type FontType = 'otf' | 'ttf';
 
-const fontInfo = readdirSync(`${REPO_PATH}/downloads`)
+interface Font {
+    name: string;
+    variants: Variant[];
+}
+
+interface Variant {
+    name: string;
+    regular: string;
+    bold: string | null;
+    italic: string | null;
+    boldItalic: string | null;
+}
+
+const fontInfo: Font[] = readdirSync(`${REPO_PATH}/downloads`)
     .filter(font => font !== 'NerdFontsSymbolsOnly')
     .map(font => {
         const files = readdirSync(`${REPO_PATH}/downloads/${font}`)
-            .filter(file => file.includes('Complete'))
-            .filter(file => !file.includes('Windows Compatible'));
-        const regular = files.filter(
-            file => !/Italic/i.test(file)
-                && !/Heavy/i.test(file)
-                && !/Light/i.test(file)
-                && !/Condensed/i.test(file)
-                && !/Medium/i.test(file)
-                && !/Thin/i.test(file)
-                && !/Italic/i.test(file)
-                && !/Oblique/i.test(file)
-                && !/Retina/i.test(file)
-                && !/Black/i.test(file)
-                && !/Bold/i.test(file)
-                && !/Extra/i.test(file)
-                && !/Semibold/i.test(file),
-        );
-        const bold = files.filter(
-            file => / Bold/i.test(file)
-                && !/Heavy/i.test(file)
-                && !/Light/i.test(file)
-                && !/Condensed/i.test(file)
-                && !/Medium/i.test(file)
-                && !/Thin/i.test(file)
-                && !/Oblique/i.test(file)
-                && !/Italic/i.test(file)
-                && !/Extra/i.test(file)
-                && !/Black/i.test(file),
-        );
-        const italic = files.filter(
-            file => / Italic/i.test(file)
-                && !/Heavy/i.test(file)
-                && !/Light/i.test(file)
-                && !/Condensed/i.test(file)
-                && !/Medium/i.test(file)
-                && !/Semibold/i.test(file)
-                && !/Bold/i.test(file)
-                && !/Thin/i.test(file)
-                && !/Oblique/i.test(file)
-                && !/Extra/i.test(file)
-                && !/Black/i.test(file),
-        );
-        const boldItalic = files.filter(
-            file => / Bold /i.test(file)
-                && / Italic/i.test(file)
-                && !/Heavy/i.test(file)
-                && !/Light/i.test(file)
-                && !/Condensed/i.test(file)
-                && !/Medium/i.test(file)
-                && !/Semibold/i.test(file)
-                && !/Thin/i.test(file)
-                && !/Oblique/i.test(file)
-                && !/Extra/i.test(file)
-                && !/Black/i.test(file),
-        );
-        return {font, regular, bold, italic, boldItalic};
-    })
-    .filter(font => font.regular.length > 0)
-    .map(font => ({
-        font: font.font,
-        regular: font.regular[0],
-        bold: font.bold[0],
-        italic: font.italic[0],
-        boldItalic: font.boldItalic[0],
-    }));
+            .filter(file => file.endsWith('.otf') || file.endsWith('.ttf'));
+        return {
+            name: font,
+            variants: Array.from(new Set(files.map(name => name.substring(0, name.lastIndexOf('-'))))).map(variant => ({
+                name: variant.replace('NerdFont', ''),
+                regular: files.find(name => name.startsWith(`${variant}-Regular`))!,
+                bold: files.find(name => name.startsWith(`${variant}-Bold`)) ?? null,
+                italic: files.find(name => name.startsWith(`${variant}-Italic`)) ?? null,
+                boldItalic: files.find(name => name.startsWith(`${variant}-BoldItalic`)) ?? null,
+            })),
+        };
+    });
 
 function createCSSRule(
     fontFamily: string,
@@ -113,52 +73,55 @@ function createCSSRule(
 }
 
 function generateStylesheet(): void {
-    rmSync(`${REPO_PATH}/fonts`, {force: true, recursive: true});
-    mkdirSync(`${REPO_PATH}/fonts`);
+    rmSync(`${REPO_PATH}/fonts-v3`, {force: true, recursive: true});
+    mkdirSync(`${REPO_PATH}/fonts-v3`);
     fontInfo.forEach(font => {
-        const rules = [
-            createCSSRule(
-                font.font,
-                'regular',
-                font.regular.slice(-3) as FontType,
-                `${REPO_PATH}/downloads/${font.font}/${font.regular}`,
-            ),
-            font.bold
-                ? createCSSRule(
-                    font.font,
-                    'bold',
-                    font.bold.slice(-3) as FontType,
-                    `${REPO_PATH}/downloads/${font.font}/${font.bold}`,
-                )
-                : '',
-            font.italic
-                ? createCSSRule(
-                    font.font,
-                    'italic',
-                    font.italic.slice(-3) as FontType,
-                    `${REPO_PATH}/downloads/${font.font}/${font.italic}`,
-                )
-                : '',
-            font.boldItalic
-                ? createCSSRule(
-                    font.font,
-                    'boldItalic',
-                    font.boldItalic.slice(-3) as FontType,
-                    `${REPO_PATH}/downloads/${font.font}/${font.boldItalic}`,
-                )
-                : '',
-        ].join('');
-        writeFileSync(`${REPO_PATH}/fonts/${font.font}.css`, rules, {
-            encoding: 'utf8',
+        mkdirSync(`${REPO_PATH}/fonts-v3/${font.name}`);
+        font.variants.forEach(variant => {
+            const rules = [
+                createCSSRule(
+                    variant.name,
+                    'regular',
+                    variant.regular.slice(-3) as FontType,
+                    `${REPO_PATH}/downloads/${font.name}/${variant.regular}`,
+                ),
+                variant.bold
+                    ? createCSSRule(
+                        variant.name,
+                        'bold',
+                        variant.bold.slice(-3) as FontType,
+                        `${REPO_PATH}/downloads/${font.name}/${variant.bold}`,
+                    )
+                    : '',
+                variant.italic
+                    ? createCSSRule(
+                        variant.name,
+                        'italic',
+                        variant.italic.slice(-3) as FontType,
+                        `${REPO_PATH}/downloads/${font.name}/${variant.italic}`,
+                    )
+                    : '',
+                variant.boldItalic
+                    ? createCSSRule(
+                        variant.name,
+                        'boldItalic',
+                        variant.boldItalic.slice(-3) as FontType,
+                        `${REPO_PATH}/downloads/${font.name}/${variant.boldItalic}`,
+                    )
+                    : '',
+            ].join('');
+            writeFileSync(`${REPO_PATH}/fonts-v3/${font.name}/${variant.name}.css`, rules, {
+                encoding: 'utf8',
+            });
+            console.log(
+                `Generated ${variant.name}: ${[
+                    'Regular',
+                    variant.bold ? ', Bold' : '',
+                    variant.italic ? ', Italic' : '',
+                    variant.boldItalic ? ', Bold Italic' : '',
+                ].join('')}`,
+            );
         });
-        console.log(
-            `Generated ${font.font}: ${[
-                'Regular',
-                font.bold ? ', Bold' : '',
-                font.italic ? ', Italic' : '',
-                font.boldItalic ? ', Bold Italic' : '',
-            ].join('')}`,
-        );
     });
 }
 
