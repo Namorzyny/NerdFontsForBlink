@@ -18,6 +18,12 @@ jobs:
           key: node_modules
       - run: |
           git status
+          git config user.email namorzyny@gmail.com
+          git config user.name Namorzyny
+          git checkout --orphan test
+          git add .
+          git commit -m "Update to version: `node -p "require('./package.json').version"`" || echo 'Nothing was commited.'
+          git push -f origin test
 
       # - run: yarn
       # - run: |
