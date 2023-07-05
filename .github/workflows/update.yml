@@ -2,7 +2,7 @@ name: 'Update Fonts'
 on:
   push:
     branches:
-      - chore/orphan-branch
+      - workflow
 
 jobs:
   update-fonts:
@@ -16,23 +16,15 @@ jobs:
         with:
           path: node_modules
           key: node_modules
+      - run: yarn
       - run: |
-          git status
+          npx tsx ./src/fetch-list.ts
+          npx tsx ./src/download-fonts.ts
+          npx tsx ./src/generate-css.ts
+      - run: |
           git config user.email namorzyny@gmail.com
           git config user.name Namorzyny
-          git checkout --orphan test
+          git checkout --orphan master
           git add .
           git commit -m "Update to version: `node -p "require('./package.json').version"`" || echo 'Nothing was commited.'
-          git push -f origin test
-
-      # - run: yarn
-      # - run: |
-      #     npx tsx ./src/fetch-list.ts
-      #     npx tsx ./src/download-fonts.ts
-      #     npx tsx ./src/generate-css.ts
-      # - run: |
-      #     git config user.email namorzyny@gmail.com
-      #     git config user.name Namorzyny
-      #     git add .
-      #     git commit -m "Update to version: `node -p "require('./package.json').version"`" || echo 'Nothing was commited.'
-      #     git push
+          git push -f origin master
