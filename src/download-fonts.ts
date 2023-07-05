@@ -1,7 +1,7 @@
 import {REPO_PATH, FONT_LIST} from './constants';
 import fetch from 'node-fetch';
 import unzipper from 'unzipper';
-import {FontList} from './fetch-list';
+import {type FontList} from './fetch-list';
 import {readFileSync, rmSync, mkdirSync} from 'fs';
 
 interface DownloadedData {
@@ -9,10 +9,18 @@ interface DownloadedData {
     data: NodeJS.ReadableStream;
 }
 
+async function download(name: string, url: string): Promise<DownloadedData> {
+    console.log(`Downloading ${name}: ${url}`);
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Unexpected response: ${response.statusText}`);
+    console.log(`Downloaded ${name}.`);
+    return {name, data: response.body};
+}
+
 class Downloader {
     private readonly parallel: number;
     private downloading: number = 0;
-    private queue: (() => void)[] = [];
+    private readonly queue: (() => void)[] = [];
 
     public constructor(parallel: number) {
         this.parallel = parallel;
@@ -49,15 +57,7 @@ class Downloader {
     }
 }
 
-async function download(name: string, url: string): Promise<DownloadedData> {
-    console.log(`Downloading ${name}: ${url}`);
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Unexpected response: ${response.statusText}`);
-    console.log(`Downloaded ${name}.`);
-    return {name, data: response.body};
-}
-
-function extract(name: string, stream: NodeJS.ReadableStream): Promise<void> {
+function extract(name: string, stream: Readonly<NodeJS.ReadableStream>): Promise<void> {
     return new Promise(resolve => stream.pipe(unzipper.Extract({
         path: `${REPO_PATH}/downloads/${name}`,
     })).on('close', () => {
